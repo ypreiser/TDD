@@ -1,54 +1,25 @@
 import React from 'react';
-
-type Priority = 'p1' | 'p2' | 'p3';
-
-type Task = {
-  id: number;
-  title: string;
-  isCompleted: boolean;
-  priority?: Priority;
-};
+import { Task } from './types';
+import AddTask from './AddTask';
 
 function App() {
   const [tasks, setTasks] = React.useState<Task[]>([]);
 
-  const [taskName, setTaskName] = React.useState('');
-
-  const onAddTask = () => {
-    const trimmedTaskName = taskName.trim();
-    if (!trimmedTaskName) {
-      return;
-    }
-
+  const onAddTask = (taskName: string) => {
     setTasks([
       ...tasks,
       {
         id: new Date().getTime(), // Not a great way to generate IDs
-        title: trimmedTaskName,
+        title: taskName,
         isCompleted: false,
       },
     ]);
-    setTaskName('');
-  };
-
-  const onInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      onAddTask();
-    }
   };
 
   return (
     <div>
       <h1>Tasks</h1>
-      <label htmlFor="task-input">Add Task: </label>
-      <input
-        id="task-input"
-        value={taskName}
-        onChange={(e) => setTaskName(e.target.value)}
-        onKeyDown={onInputKeyDown}
-      />
-      <button onClick={onAddTask}>Add</button>
-
+      <AddTask onAddTask={onAddTask} />
       <ul>
         {tasks.map((task) => (
           <li key={task.id}>{task.title}</li>
