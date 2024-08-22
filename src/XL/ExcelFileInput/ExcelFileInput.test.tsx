@@ -12,7 +12,7 @@ describe('ExcelFileInput Component', () => {
       type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     });
     const input = screen.getByLabelText(
-      /upload an excel file/i,
+      /Choose an Excel file/i,
     ) as HTMLInputElement;
     fireEvent.change(input, { target: { files: [file] } });
 

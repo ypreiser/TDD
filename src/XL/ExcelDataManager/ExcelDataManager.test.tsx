@@ -85,10 +85,16 @@ describe('ExcelDataManager Component', () => {
     await waitFor(() => {
       expect(screen.getByText('Header1')).toBeInTheDocument();
     });
-    expect(screen.getByText('Row1Col1')).toBeInTheDocument();
-    expect(screen.getByText('2')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('Header2')).toBeInTheDocument();
+    });
+    expect(screen.getByRole('cell', { name: 'Row1Col1' })).toBeInTheDocument();
+    expect(screen.getByRole('cell', { name: '1' })).toBeInTheDocument();
+    expect(screen.getByRole('cell', { name: 'Row2Col1' })).toBeInTheDocument();
+    expect(screen.getByRole('cell', { name: '2' })).toBeInTheDocument();
 
     expect(xlsxMock.read).toHaveBeenCalled();
+
     expect(xlsxMock.utils.sheet_to_json).toHaveBeenCalled();
   });
 });

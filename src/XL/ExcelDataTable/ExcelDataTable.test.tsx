@@ -12,9 +12,20 @@ describe('ExcelDataTable Component', () => {
     ];
     render(<ExcelDataTable data={mockData} />);
 
-    expect(screen.getByText('Excel Data:')).toBeInTheDocument();
-    expect(screen.getByText('Header1')).toBeInTheDocument();
-    expect(screen.getByText('Row1Col1')).toBeInTheDocument();
-    expect(screen.getByText('2')).toBeInTheDocument();
+    expect(
+      screen.getByRole('columnheader', { name: 'Header1' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('columnheader', { name: 'Header2' }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('cell', { name: 'Row1Col1' })).toBeInTheDocument();
+    expect(screen.getByRole('cell', { name: '1' })).toBeInTheDocument();
+    expect(screen.getByRole('cell', { name: 'Row2Col1' })).toBeInTheDocument();
+    expect(screen.getByRole('cell', { name: '2' })).toBeInTheDocument();
+  });
+
+  it('should display a message when no data is available', () => {
+    render(<ExcelDataTable data={[]} />);
+    expect(screen.getByText('No data available')).toBeInTheDocument();
   });
 });

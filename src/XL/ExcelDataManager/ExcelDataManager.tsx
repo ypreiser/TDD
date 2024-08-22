@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import ExcelFileInput from '../ExcelFileInput';
 import ExcelDataTable from '../ExcelDataTable';
 import * as XLSX from '@e965/xlsx';
+import styles from './ExcelDataManager.module.css';
 
 const ExcelDataManager: React.FC = () => {
   const [data, setData] = useState<(string | number)[][]>([]);
@@ -23,7 +24,8 @@ const ExcelDataManager: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className={styles.excelDataManager}>
+      <h2 className={styles.excelDataManagerTitle}>Excel Data Manager</h2>
       <ExcelFileInput onFileUpload={handleFileUpload} />
       <ExcelDataTable data={data} />
     </div>

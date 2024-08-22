@@ -1,5 +1,6 @@
 // src\XL\ExcelFileInput\ExcelFileInput.tsx
 import React from 'react';
+import styles from './ExcelFileInput.module.css';
 
 interface ExcelFileInputProps {
   onFileUpload: (file: File) => void;
@@ -14,10 +15,15 @@ const ExcelFileInput: React.FC<ExcelFileInputProps> = ({ onFileUpload }) => {
   };
 
   return (
-    <div>
-      <label>
-        Upload an Excel file
-        <input type="file" accept=".xlsx, .xls" onChange={handleFileChange} />
+    <div className={styles.excelFileInput}>
+      <label className={styles.excelFileInputLabel}>
+        <span className={styles.excelFileInputText}>Choose an Excel file</span>
+        <input
+          type="file"
+          accept=".xlsx, .xls"
+          onChange={handleFileChange}
+          className={styles.excelFileInputHidden}
+        />
       </label>
     </div>
   );

@@ -1,0 +1,27 @@
+/* src\XL\ExcelFileInput\ExcelFileInput.module.css */
+.excelFileInput {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.excelFileInputLabel {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.excelFileInputLabel:hover {
+  background-color: #45a049;
+}
+
+.excelFileInputText {
+  font-size: 16px;
+}
+
+.excelFileInputHidden {
+  display: none;
+}
