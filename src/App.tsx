@@ -1,10 +1,10 @@
 // src\App.tsx
-import ExcelUploader from './ExcelUploader';
+import ExcelDataManager from './XL/ExcelDataManager';
 
 function App() {
   return (
     <div>
-      <ExcelUploader />
+      <ExcelDataManager />
     </div>
   );
 }
