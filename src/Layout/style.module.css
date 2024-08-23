@@ -1,0 +1,18 @@
+/* src\Layout\style.module.css */
+
+.appContainer {
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+  background-color: var(--main-bg-color);
+  color: var(--text-color);
+}
+
+.mainContent {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+  margin: 30px;
+  background-color: var(--gray20);
+  border-radius: 20px;
+}
