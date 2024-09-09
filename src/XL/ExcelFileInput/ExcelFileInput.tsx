@@ -20,7 +20,7 @@ const ExcelFileInput: React.FC<ExcelFileInputProps> = ({ onFileUpload }) => {
         <span className={styles.excelFileInputText}>Choose an Excel file</span>
         <input
           type="file"
-          accept=".xlsx, .xls"
+          accept=".xlsx, .xls, .csv"
           onChange={handleFileChange}
           className={styles.excelFileInputHidden}
         />
